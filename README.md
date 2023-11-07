@@ -9,7 +9,7 @@ Fedora tiene un problema con las actualizaciones de Discord. Este script lo solu
 
 Debido a que Fedora no da soporte inmediato a Discord en sus repositorios, hace que cuando llega una actualización de Discord tengas que descargar la actualización manualmente, descomprimir el archivo y ejecutar manualmente Discord cada vez que quieras usarlo. 
 
-Por eso he creado este script que se ejecuta cada vez que se inicia el sistema operativo y configura los archvivos en sus respectivos directorios para que no tengas que hacer nada!
+Por eso he creado este script que se ejecuta cada vez que se inicia el sistema operativo y configura los archivos de Discord en sus respectivos directorios para que no tengas que hacer nada!
 
 <h2>Comandos</h2>
 
