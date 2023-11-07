@@ -14,11 +14,6 @@ Por eso he creado este script que se ejecuta cada vez que se inicia el sistema o
 
 <h2>📋Comandos</h2>
 
-Asegurate de tener discord-fix en la carpeta "Descargas", sino, puedes moverlo con el comando
-```bash
-mv discord-fix ~/Descargas
-```
-
 Aplica permisos de ejecución
 ```bash
 chmod +x discord-fix
