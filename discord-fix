@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#Comprobación de la existencia de la tarea en crontab
+echo -e "\e[1;36m"
+
+if sudo crontab -u root -l | grep -q '@reboot /usr/bin/discord-fix'; then
+
+	echo -e "\n\e[1;36mCrontab esta correcto\e[0m"
+
+else
+
+	echo "@reboot /usr/bin/discord-fix" | sudo crontab -u root -
+
+fi
+
+echo -e "\e[0m"
+
+#Declaración de las variables de las busquedas de la versión instalada y la más reciente
+comp1=$(curl -s https://discord.com/api/download\?platform\=linux\&format\=tar.gz | grep -oP 'discord-\K\d+\.\d+\.\d+' | tail -n1)
+comp2=$(find $(find /home/ -type d -path "*/.config/discord")/ -type d -name '0.*' | awk -F'discord/' '{print $2}')
+
+#Si no está actualizado, procede con la actualización
+if [ "$comp1" != "$comp2" ]; then
+
+        echo -e "\e[1;31m¡Tienes una version desactualizada!\n\e[0m"
+
+        mkdir -p ~/Descargas/Discord
+        echo -e "\e[1;36m[+]\e[0m \e[32mDescargando Discord...\e[0m"
+        wget -nv -q --show-progress https://discord.com/api/download\?platform\=linux\&format\=tar.gz -O ~/Descargas/latest.tar.gz
+        echo -e ""
+
+        echo -e "\e[1;36m[+]\e[0m \e[32mDescomprimiendo archivos...\n\e[0m"
+        tar -xf ~/Descargas/latest.tar.gz -C ~/Descargas/Discord/
+
+        echo -e "\e[1;36m[+]\e[0m \e[32mSobreescribiendo archivos...\e[0m"
+        echo -e "\e[1;36m"
+        sudo rm -rf /usr/lib64/discord
+        sudo rm -rf /usr/bin/Discord
+        sudo mkdir /usr/lib64/discord
+        sudo cp -r ~/Descargas/Discord/Discord/* /usr/lib64/discord
+        sudo ln -s /usr/lib64/discord/Discord /usr/bin/Discord
+	sudo rm -rf ~/Descargas/Discord
+	sudo rm -rf ~/Descargas/latest.tar.gz
+
+	sudo cp ./discord-fix /usr/bin/discord-fix 2>/dev/null
+	sudo chmod +x /usr/bin/discord-fix >/dev/null
+	echo -e "\e[0m"
+	echo -e "\e[1;36mSe ha actualizado la versión de Discord!\e[0m"
+
+else
+
+	echo -e "\e[1;36mDiscord ya està en la ultima versión!\e[0m"
+
+fi
+
+#Se copia el script en /usr/bin/ para que pueda ser ejecutado sin estar en la ruta del mismo
+sudo cp discord-fix /usr/bin/discord-fix 2>/dev/null
+sudo chmod +x /usr/bin/discord-fix >/dev/null
