@@ -4,6 +4,7 @@
 
 ![](https://img.shields.io/badge/Estado-Funcional-bue)
 
+<h2>📌Introducción</h2>
 Fedora tiene un problema con las actualizaciones de Discord. Este script lo soluciona!
 
 
@@ -11,7 +12,7 @@ Debido a que Fedora no da soporte inmediato a Discord en sus repositorios, hace 
 
 Por eso he creado este script que se ejecuta cada vez que se inicia el sistema operativo y configura los archivos de Discord en sus respectivos directorios para que no tengas que hacer nada!
 
-<h2>Comandos</h2>
+<h2>📋Comandos</h2>
 
 Asegurate de tener discord-fix en la carpeta "Descargas", sino, puedes moverlo con el comando
 ```bash
