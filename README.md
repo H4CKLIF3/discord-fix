@@ -3,7 +3,6 @@
 ![Logo de Discord](https://github.com/H4CKLIF3/discord-fix/assets/45366091/cc4213b7-1202-44dd-a605-966e1c11ba9a)
 
 ![](https://img.shields.io/badge/Estado-Funcional-bue)
-![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
 Fedora tiene un problema con las actualizaciones de Discord. Este script lo soluciona!
 
