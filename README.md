@@ -12,7 +12,12 @@ Debido a que Fedora no da soporte inmediato a Discord en sus repositorios, hace 
 
 Por eso he creado este script que se ejecuta cada vez que se inicia el sistema operativo y configura los archivos de Discord en sus respectivos directorios para que no tengas que hacer nada!
 
-<h2>📋Comandos</h2>
+<h2>📋Instalación</h2>
+
+Descarga el script
+```bash
+wget https://github.com/H4CKLIF3/discord-fix/releases/download/discord-fix/discord-fix
+```
 
 Aplica permisos de ejecución
 ```bash
