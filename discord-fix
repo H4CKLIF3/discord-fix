@@ -54,5 +54,13 @@ else
 fi
 
 #Se copia el script en /usr/bin para que pueda ser ejecutado sin estar en la ruta del mismo
-sudo cp discord-fix /usr/bin/discord-fix 2>/dev/null
+sudo cp ./discord-fix /usr/bin/discord-fix 2>/dev/null
 sudo chmod +x /usr/bin/discord-fix >/dev/null
+
+#Se excluye el paquete de discord en dnf para evitar conflictos
+if [ $(cat /etc/dnf/dnf.conf | grep -q 'exclude=discord') $(echo $?) != 0 ]; then
+
+        echo "exclude=discord" >> /etc/dnf/dnf.conf
+
+fi
+
